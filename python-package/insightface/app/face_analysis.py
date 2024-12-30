@@ -24,7 +24,7 @@ class FaceAnalysis:
     def __init__(self, name=DEFAULT_MP_NAME, root='~/.insightface', allowed_modules=None, **kwargs):
         onnxruntime.set_default_logger_severity(3)
         self.models = {}
-        self.model_dir = ensure_available('models', name, root=root)
+        self.model_dir = ensure_available(name, root=root)
         onnx_files = glob.glob(osp.join(self.model_dir, '*.onnx'))
         onnx_files = sorted(onnx_files)
         for onnx_file in onnx_files:
